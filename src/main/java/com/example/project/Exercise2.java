@@ -21,8 +21,27 @@ public class Exercise2 {
 	}
 
 	public Integer getMenorNumeroSaltos(int a []) {
-
-		// TO DO
-		return -1;
+		int diferenciaRocas = a[1] - a[0];
+		for(int i = 0; i<a.length - 1; i++) {
+			if(a[i+1] - a[i] > diferenciaRocas)
+				diferenciaRocas = a[i+1] - a[i];
+		}
+		if(diferenciaRocas < 50) {
+			int miSalto = 0;
+			int saltos = 0;
+			int miSaltoMAX = 50;
+			while (miSaltoMAX < a[a.length-1] ) {
+				for(int i = 0; i<a.length; i++) {
+					if(a[i] < miSaltoMAX)
+						miSalto = a[i];			
+				}
+				miSaltoMAX = miSalto +50;
+				saltos++;
+			}
+			return saltos + 1;
+		}
+		else
+			return -1;
+	
 	}
 }
